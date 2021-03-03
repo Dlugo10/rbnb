@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(version: 2021_03_03_182656) do
     t.date "availability_start_date"
     t.date "availability_end_date"
     t.string "title"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_flats_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,4 +40,5 @@ ActiveRecord::Schema.define(version: 2021_03_03_182656) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "flats", "users"
 end
