@@ -2,22 +2,33 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @reservations = Reservation.all
+    @reservations = policy_scope(Reservation)
   end
 
   def show
-    @reservations = Reservation.find(params[:id])
+    @reservation = Reservation.find(params[:id])
+    authorize @reservation
   end
 
   def new
+    @flat = Flat.find(params[:flat_id])
     @reservation = Reservation.new
+    authorize @reservation
   end
 
   def create
-    @reservations = Reservation.new(reservation_params)
-    @reservations.save
+    @reservation = Reservation.new(reservation_params)
+    authorize @reservation
+    @reservation.user = current_user
 
-    redirect_to reservations_path
+    flat = Flat.find(params[:flat_id])
+    @reservation.flat = flat
+
+    if @reservation.save!
+      redirect_to flat_reservations_path, notice: 'Reservation was successfully created'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -43,5 +54,4 @@ class ReservationsController < ApplicationController
   def reservation_params
     params.require(:reservation).permit(:price, :start_date, :end_date)
   end
-
 end

@@ -1,0 +1,20 @@
+<h1 class="border-bottom">New Reservation</h1>
+
+<ul>
+
+  <%= simple_form_for [@flat, @reservation] do |f| %>
+
+  <li>
+    <%= f.input :price %>
+  </li>
+  <li>
+    <%= f.input :start_date, as: :date %>
+  </li>
+   <li>
+    <%= f.input :end_date, as: :date %>
+  </li>
+  <li>
+    <%= f.submit %>
+  </li>
+</ul>
+<% end %>
