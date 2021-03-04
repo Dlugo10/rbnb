@@ -1,6 +1,5 @@
 class FlatsController < ApplicationController
    # Not required since everyone can see flats before_action :authenticate_user!
-
     def index
       @flats = Flat.all
     end

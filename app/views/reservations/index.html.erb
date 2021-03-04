@@ -4,15 +4,17 @@
   
   <% @reservations.each do |reservation|%>
     <li>
-      <% if reservation.completed %>
-        <i class="fa fa-check-square"></i>
-      <% else %>
-        <i class="fa fa-square"></i>
-      <% end %>
-      <%= link_to reservation.price, reservation_path(task) %>
-      
+      <h3>Price: <%= reservation.price %> $</h3>
+    </li>
+    <li>
+      <h3>Start Date: <%= reservation.start_date %> </h3>
+    </li>
+    <li>
+      <h3>End Date: <%= reservation.end_date %> </h3>
     </li>
   <% end %>
-</ul>
+</ul> 
+<%= link_to "Home Page", root_path, class: "btn btn-success" %> 
+<%# <%= link_to reservation.price, reservation_path(reservation) %>
 <%# 
 <div id='btn'><%=  link_to "Create a new reservation", new_reservation_path, class: "btn btn-success" %></div> 
