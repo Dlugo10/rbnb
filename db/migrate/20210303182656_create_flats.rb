@@ -7,6 +7,8 @@ class CreateFlats < ActiveRecord::Migration[6.0]
       t.date :availability_start_date
       t.date :availability_end_date
       t.string :title
+      t.references  :user, foreign_key: true
+
 
       t.timestamps
     end
