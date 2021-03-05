@@ -3,6 +3,7 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = policy_scope(Reservation)
+   
   end
 
   def show
@@ -24,22 +25,28 @@ class ReservationsController < ApplicationController
     flat = Flat.find(params[:flat_id])
     @reservation.flat = flat
 
-    if @reservation.save!
+    if @reservation.save
       redirect_to flat_reservations_path, notice: 'Reservation was successfully created'
     else
       render :new
     end
+  
   end
 
   def edit
+    @flat = Flat.find(params[:flat_id])
     @reservation = Reservation.find(params[:id])
+
+    authorize @reservation
   end
 
   def update
     @reservation = Reservation.find(params[:id])
     @reservation.update(reservation_params)
 
-    redirect_to reservations_path(@reservation.id)
+    redirect_to flat_reservation_path(@reservation.flat, @reservation)
+
+    authorize @reservation
   end
 
   def destroy

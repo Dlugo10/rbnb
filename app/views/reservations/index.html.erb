@@ -1,6 +1,6 @@
 <h1 class="border-bottom">Reservations</h1>
 
-<ul class='task-list'>
+<ul class='reservation-list'>
   
   <% @reservations.each do |reservation|%>
     <li>
@@ -12,9 +12,12 @@
     <li>
       <h3>End Date: <%= reservation.end_date %> </h3>
     </li>
+      <li><%= link_to "Update Reservation", edit_flat_reservation_path(reservation.flat, reservation), class: "btn btn-primary" %> 
+    </li>
   <% end %>
 </ul> 
 <%= link_to "Home Page", root_path, class: "btn btn-success" %> 
+ 
 <%# <%= link_to reservation.price, reservation_path(reservation) %>
 <%# 
 <div id='btn'><%=  link_to "Create a new reservation", new_reservation_path, class: "btn btn-success" %></div> 
