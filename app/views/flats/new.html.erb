@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h1>Create a new flat</h1>
+      <%= simple_form_for [@flat] do |f| %>
+        <ul>
+          <ol>
+            <%= f.input :title %>
+          </ol>
+          <ol>
+            <%= f.input :description %>
+          </ol>
+          <ol>
+            <%= f.input :address %>
+          </ol>
+          <ol>
+            <%= f.submit %>
+          </ol>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

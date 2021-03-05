@@ -1,1 +1,11 @@
 // Specific CSS for your home-page
+h1, h2 {
+  margin: 10px;
+  color: rgb(50, 30, 70);
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+  background-color: #F4F4F4;
+}
+.row {
+  padding-top: 120px;
+  padding-bottom: 20px
+}
