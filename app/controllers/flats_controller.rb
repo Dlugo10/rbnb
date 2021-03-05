@@ -1,19 +1,23 @@
 class FlatsController < ApplicationController
    # Not required since everyone can see flats before_action :authenticate_user!
+
     def index
-      @flats = Flat.all
+      @flats = policy_scope(Flat)
     end
   
     def show
       @flats = Flat.find(params[:id])
+      authorize @flat
     end
   
     def new
       @flat = Flat.new
+      authorize @flat
     end
   
     def create
       @flats = Flat.new(flat_params)
+      authorize @flat
       @flats.save
   
       redirect_to flats_path
