@@ -2,17 +2,6 @@
 
 <ul class='task-list'>
   
-  <% @flats.each do |flat|%>
-    <li>
-      <% if flat.completed %>
-        <i class="fa fa-check-square"></i>
-      <% else %>
-        <i class="fa fa-square"></i>
-      <% end %>
-      <%= link_to flat.price, flat_path(task) %>
-      
-    </li>
-  <% end %>
-</ul>
 <%# 
-<div id='btn'><%=  link_to "Create a new reservation", new_reservation_path, class: "btn btn-success" %></div> 
+<div id='btn'><%=  link_to "Create a new reservation", new_reservation_path, class: "btn btn-success" %>
+</div> 
