@@ -14,12 +14,14 @@ class FlatPolicy < ApplicationPolicy
   end
 
   def update?
+    true
 
-    user == record.user || user.admin
+   # user == record.user || user.admin
   end
 
   def destroy
-    user == record.user || user.admin
+    true
+   # user == record.user || user.admin
   end
 
 end

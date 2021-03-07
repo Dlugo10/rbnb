@@ -7,7 +7,7 @@ class FlatsController < ApplicationController
   
     def show
       @flats = Flat.find(params[:id])
-      authorize @flat
+      authorize @flats
     end
   
     def new
@@ -16,15 +16,16 @@ class FlatsController < ApplicationController
     end
   
     def create
-      @flats = Flat.new(flat_params)
+      @flat = Flat.new(flat_params)
       authorize @flat
-      @flats.save
+      @flat.save
   
       redirect_to flats_path
     end
   
     def edit
       @flat = Flat.find(params[:id])
+      authorize @flat
     end
   
     def update
