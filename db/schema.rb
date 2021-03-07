@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_223607) do
+ActiveRecord::Schema.define(version: 2021_03_06_120301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 2021_03_03_223607) do
     t.date "availability_start_date"
     t.date "availability_end_date"
     t.string "title"
-    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_flats_on_user_id"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 2021_03_03_223607) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "flats", "users"
   add_foreign_key "reservations", "flats"
   add_foreign_key "reservations", "users"
 end
