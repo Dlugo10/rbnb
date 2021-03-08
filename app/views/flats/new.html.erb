@@ -1,3 +1,4 @@
+
 <h1 class="border-bottom">New Flat</h1>
 
 <ul>
@@ -23,7 +24,11 @@
     <%= f.input :title, as: :text  %>
   </li>
   <li>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  </li>
+  <li>
     <%= f.submit %>
   </li>
 </ul>
 <% end %>
+

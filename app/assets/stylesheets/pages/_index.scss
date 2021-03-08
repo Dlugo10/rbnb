@@ -1,5 +1,7 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "new";
+
 
 .container {    // formatting from here https://getflywheel.com/layout/card-layout-css-grid-layout-how-to/
     display: grid;
@@ -17,6 +19,7 @@
 button.btn {
     align-items: bottom;
   }
+
 
 .btn-group {
   display: inline-block;

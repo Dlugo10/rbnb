@@ -51,7 +51,7 @@ class ReservationsController < ApplicationController
     authorize @reservation
     @reservation.destroy
 
-    redirect_to reservations_path
+    redirect_to flat_reservations_path(:id)
   end
 
   private
