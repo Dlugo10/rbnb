@@ -2,6 +2,13 @@ class FlatsController < ApplicationController
    # Not required since everyone can see flats before_action :authenticate_user!
     def index
       @flats = policy_scope(Flat)
+
+      @markers = @flats.geocoded.map do |flat|
+        {
+          lat: flat.latitude,
+          lng: flat.longitude
+        }
+      end
     end
   
     def show
@@ -44,7 +51,7 @@ class FlatsController < ApplicationController
     private
   
     def flat_params
-      params.require(:flat).permit(:price, :description, :adress, :availability_start_date, :availability_end_date, :title, photos: [])
+      params.require(:flat).permit(:price, :description, :address, :availability_start_date, :availability_end_date, :title, photos: [])
     end
 end
 

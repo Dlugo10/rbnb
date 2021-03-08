@@ -1,23 +1,23 @@
-<h1 class="border-bottom">Reservations</h1>
+<h1 class="border-bottom">My Reservations</h1>
 
-<ul class='reservation-list'>
+<div class='reservation-list'>
   
   <% @reservations.each do |reservation|%>
-    <li>
-      <h3>Price: <%= reservation.price %> $</h3>
-    </li>
-    <li>
-      <h3>Start Date: <%= reservation.start_date %> </h3>
-    </li>
-    <li>
-      <h3>End Date: <%= reservation.end_date %> </h3>
-    </li>
-      <li><%= link_to "Update Reservation", edit_flat_reservation_path(reservation.flat, reservation), class: "btn btn-primary" %> 
-    </li>
+   <div class="card-trip">
+  <img src="https://source.unsplash.com/random" />
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title here</h2>
+      <p>Start Date: <%= reservation.start_date %> </p>
+      <p>End Date: <%= reservation.end_date %> </p>
+    </div>
+    <h2 class="card-trip-pricing">Price: <%= reservation.price %> $</h2>
+    
+  </div>
+  <%= link_to "Update Reservation", edit_flat_reservation_path(reservation.flat, reservation), class: "btn btn-primary" %>
+ <i class="fas fa-trash-alt"> <%= link_to "." , flat_reservation_path(reservation.flat, reservation), method: :delete, data: { confirm: "Are you sure?" }%></i>
+</div>
+
   <% end %>
-</ul> 
-<%= link_to "Home Page", root_path, class: "btn btn-success" %> 
+</div> 
  
-<%# <%= link_to reservation.price, reservation_path(reservation) %>
-<%# 
-<div id='btn'><%=  link_to "Create a new reservation", new_reservation_path, class: "btn btn-success" %></div> 
