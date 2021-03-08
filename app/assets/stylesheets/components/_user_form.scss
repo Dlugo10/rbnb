@@ -1,0 +1,28 @@
+.container-user-form {
+  padding: 100px 170px;
+  margin-right: auto;
+  background-color: whitesmoke;
+}
+
+.divider {
+  width: 50%;  
+  margin: 0 auto;
+  background: white;                         
+  padding: 30px;                             
+  border-radius: 12px;                        
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+}
+
+.btn-ghost {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+}

@@ -1,23 +1,31 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <h1>Create a new flat</h1>
-      <%= simple_form_for [@flat] do |f| %>
-        <ul>
-          <ol>
-            <%= f.input :title %>
-          </ol>
-          <ol>
-            <%= f.input :description %>
-          </ol>
-          <ol>
-            <%= f.input :address %>
-          </ol>
-          <ol>
-            <%= f.submit %>
-          </ol>
-        </ul>
-      <% end %>
-    </div>
-  </div>
-</div>
+
+<h1 class="border-bottom">New Flat</h1>
+
+<ul>
+
+  <%= simple_form_for [@flat] do |f| %>
+
+  <li>
+    <%= f.input :price %>
+  </li>
+    <li>
+    <%= f.input :description, as: :text  %>
+  </li>
+    <li>
+    <%= f.input :address, as: :text  %>
+  </li>
+    <li>
+    <%= f.input :availability_start_date, as: :date  %>
+  </li>
+    <li>
+    <%= f.input :availability_end_date, as: :date  %>
+  </li>
+  <li>
+    <%= f.input :title, as: :text  %>
+  </li>
+  <li>
+    <%= f.submit %>
+  </li>
+</ul>
+<% end %>
+

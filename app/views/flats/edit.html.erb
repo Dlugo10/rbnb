@@ -1,0 +1,19 @@
+<h1 class="border-bottom">Edit Flat</h1>
+
+<ul>
+
+  <%= simple_form_for [@flat] do |f| %>
+  <li>
+    <%= f.input :price, as: :integer %>
+  </li>
+   <li>
+    <%= f.input :availability_start_date, as: :date %>
+  </li>
+     <li>
+    <%= f.input :availability_end_date, as: :date %>
+  </li>
+  <li>
+    <%= f.submit %>
+  </li>
+</ul>
+<% end %>

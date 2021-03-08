@@ -1,3 +1,22 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "new";
+
+
+.container {    // formatting from here https://getflywheel.com/layout/card-layout-css-grid-layout-how-to/
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 25px;
+    }
+
+//   or https://www.w3schools.com/css/css_grid_container.asp 
+//  .grid-container {
+//   display: grid;
+//   grid-template-columns: auto auto auto auto;
+// }
+
+button.btn {
+    align-items: bottom;
+  }
+
