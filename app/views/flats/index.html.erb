@@ -19,6 +19,8 @@
             <h6 class="card-address"><%= flat.address %> </h6>
             <p class="card-description"><%= flat.description %> </p>
             <a><%= link_to "Update Flat", edit_flat_path(flat), class: "btn btn-primary" %> </a>
+            <a><%= link_to "Delete Flat", flat, method: :delete, class: "btn btn-danger" %> </a> 
+            <%# having an issue with the pundit %>
         </div>
      </div>
     <% end %>

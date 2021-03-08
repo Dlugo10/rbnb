@@ -6,11 +6,14 @@
   <li>
     <%= f.input :price, as: :integer %>
   </li>
-   <li>
+  <li>
     <%= f.input :availability_start_date, as: :date %>
   </li>
-     <li>
+  <li>
     <%= f.input :availability_end_date, as: :date %>
+  </li>
+  <li>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   </li>
   <li>
     <%= f.submit %>
