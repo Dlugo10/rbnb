@@ -29,7 +29,6 @@ class ReservationsController < ApplicationController
     else
       render :new
     end
-  
   end
 
   def edit
@@ -41,15 +40,15 @@ class ReservationsController < ApplicationController
 
   def update
     @reservation = Reservation.find(params[:id])
+    authorize @reservation
     @reservation.update(reservation_params)
 
     redirect_to flat_reservation_path(@reservation.flat, @reservation)
-
-    authorize @reservation
   end
 
   def destroy
     @reservation = Reservation.find(params[:id])
+    authorize @reservation
     @reservation.destroy
 
     redirect_to reservations_path
