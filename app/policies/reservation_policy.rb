@@ -4,7 +4,7 @@ class ReservationPolicy < ApplicationPolicy
       scope.all
     end
   end
-  
+
   def create?
     true
   end
@@ -14,15 +14,10 @@ class ReservationPolicy < ApplicationPolicy
   end
 
   def update?
-    # if user == record.user
-    #   true
-    # else
-    #   false
-    # end
     user == record.user || user.admin
   end
 
-  def destroy
+  def destroy?
     user == record.user || user.admin
   end
 end

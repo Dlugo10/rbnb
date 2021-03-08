@@ -1,10 +1,10 @@
 <h1 class="border-bottom">Flats</h1>
 
-<div class="container", id="route buttons">
-    <%= link_to "Home Page", root_path, class: "btn btn-primary" %>
-    <div id='btn'><%=  link_to "Create a new flat", new_flat_path, class: "btn btn-primary" %></div>
+<div class="btn-group", id="route buttons">
+    <%= link_to "Home Page", root_path, class: "btn btn-primary btn-sm", id: "Home" %>
+    <%=  link_to "Create a new flat", new_flat_path, class: "btn btn-primary btn-sm", id: "New" %>
 </div>
- 
+
 <div class="container">
     <% @flats.each do |flat|%>
      <div class="card" style="width: 18rem;">
@@ -19,8 +19,7 @@
             <h6 class="card-address"><%= flat.address %> </h6>
             <p class="card-description"><%= flat.description %> </p>
             <a><%= link_to "Update Flat", edit_flat_path(flat), class: "btn btn-primary" %> </a>
-            <a><%= link_to "Delete Flat", flat, method: :delete, class: "btn btn-danger" %> </a> 
-            <%# having an issue with the pundit %>
+            <a><%= link_to "Delete Flat", flat_path(flat), method: "delete", class: "btn btn-danger" %> </a>
         </div>
      </div>
     <% end %>
@@ -33,4 +32,5 @@
           data-mapbox-api-key="pk.eyJ1IjoiZGF2aWRsdWdvMTAiLCJhIjoiY2tsMnBycGFvMGI2ajJucDdzeTc1bmg3diJ9.OIpMWRQo9NRtxDnU52PUmQ">
      </div> 
     </div> 
-</div> 
+</div>
+
