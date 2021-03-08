@@ -23,6 +23,9 @@
     <%= f.input :title, as: :text  %>
   </li>
   <li>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  </li>
+  <li>
     <%= f.submit %>
   </li>
 </ul>
