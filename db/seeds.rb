@@ -21,7 +21,7 @@ puts 'Creating Flats'
     )
     puts "flat #{flat.id} is created"
 end 
-puts "done"
+puts "done" 
 
 # t.integer "price"
 # t.text "description"
