@@ -4,7 +4,7 @@ class FlatPolicy < ApplicationPolicy
       scope.all
     end
   end
-  
+
   def create?
     true
   end
@@ -14,14 +14,10 @@ class FlatPolicy < ApplicationPolicy
   end
 
   def update?
-    true
-
-   # user == record.user || user.admin
+   user == record.user || user.admin
   end
 
-  def destroy
-    true
-   # user == record.user || user.admin
+  def destroy?
+   user == record.user || user.admin
   end
-
 end

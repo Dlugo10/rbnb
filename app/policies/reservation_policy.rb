@@ -4,7 +4,7 @@ class ReservationPolicy < ApplicationPolicy
       scope.all
     end
   end
-  
+
   def create?
     true
   end
@@ -22,7 +22,7 @@ class ReservationPolicy < ApplicationPolicy
     user == record.user || user.admin
   end
 
-  def destroy
+  def destroy?
     user == record.user || user.admin
   end
 end

@@ -1,6 +1,8 @@
+<div class="flex-container">
+  <h2>New price: <%= @flat.price %></h2>
+  <h2>New availability start date: <%= @flat.availability_start_date %></h2>
+  <h2>New availability end date: <%= @flat.availability_end_date %></h2>
 
-<h2>New price: <%= @flat.price %></h2>
-<h2>New availability start date: <%= @flat.availability_start_date %></h2>
-<h2>New availability end date: <%= @flat.availability_end_date %></h2>
+  <%= link_to "Back to my flats", flat_path %>
 
-<%= link_to "Back to my flats", flat_path %>
+</div>
