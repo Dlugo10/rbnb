@@ -1,25 +1,33 @@
 <h1 class="border-bottom">Edit Flat</h1>
+<div class="container-user-form">
+  <div class= 'divider'>
+    <div class='row justify-content-center'>
+      <div class="col-6"> 
 
-<ul>
+        <ul>
 
-  <%= simple_form_for [@flat] do |f| %>
-  <li>
-    <%= f.input :price, as: :integer %>
-  </li>
-  <li>
-    <%= f.input :address %>
-  </li>
-  <li>
-    <%= f.input :availability_start_date, as: :date %>
-  </li>
-  <li>
-    <%= f.input :availability_end_date, as: :date %>
-  </li>
-  <li>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  </li>
-  <li>
-    <%= f.submit %>
-  </li>
-</ul>
-<% end %>
+          <%= simple_form_for [@flat] do |f| %>
+          <li>
+            <%= f.input :price, as: :integer %>
+          </li>
+          <li>
+            <%= f.input :address %>
+          </li>
+          <li>
+            <%= f.input :availability_start_date, as: :date %>
+          </li>
+          <li>
+            <%= f.input :availability_end_date, as: :date %>
+          </li>
+          <li>
+            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+          </li>
+          <li>
+            <%= f.submit %>
+          </li>
+        </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
