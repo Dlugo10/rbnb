@@ -20,8 +20,9 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     authorize @reservation
     @reservation.user = current_user
-    @reservation.price =
     flat = Flat.find(params[:flat_id])
+    @days = (@reservation.end_date - @reservation.start_date).to_i
+    @reservation.price = @flat.price * @days
     @reservation.flat = flat
 
     if @reservation.save
@@ -34,7 +35,6 @@ class ReservationsController < ApplicationController
   def edit
     @flat = Flat.find(params[:flat_id])
     @reservation = Reservation.find(params[:id])
-
     authorize @reservation
   end
 
@@ -42,7 +42,6 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
     authorize @reservation
     @reservation.update(reservation_params)
-
     redirect_to flat_reservation_path(@reservation.flat, @reservation)
   end
 
