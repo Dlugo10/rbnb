@@ -6,13 +6,31 @@
   <%= simple_form_for [@flat] do |f| %>
 
   <li>
-    <%= f.input :price %>
+    <%= f.input :title, as: :text  %>
   </li>
-    <li>
+  <li>
     <%= f.input :description, as: :text  %>
   </li>
-    <li>
+      <li>
     <%= f.input :address, as: :text  %>
+  </li>
+      <li>
+    <%= f.input :city, as: :string  %>
+  </li>
+   <li>
+    <%= f.input :zip %>
+  </li>
+  <li>
+    <%= f.input :bedroom %>
+  </li>
+   <li>
+    <%= f.input :bed %>
+  </li>
+   <li>
+    <%= f.input :restroom %>
+  </li>
+  <li>
+    <%= f.input :price %>
   </li>
     <li>
     <%= f.input :availability_start_date, as: :date  %>
@@ -21,11 +39,9 @@
     <%= f.input :availability_end_date, as: :date  %>
   </li>
   <li>
-    <%= f.input :title, as: :text  %>
-  </li>
-  <li>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   </li>
+
   <li>
     <%= f.submit %>
   </li>
