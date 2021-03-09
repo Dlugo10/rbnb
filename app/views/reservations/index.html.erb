@@ -4,23 +4,21 @@
 
 
 <div class='reservation-list'>
-  
+
   <% @reservations.each do |reservation|%>
    <div class="card-trip">
-  <img src="https://source.unsplash.com/random" />
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= reservation.flat.title %></h2>
-      <p>Start Date: <%= reservation.start_date %> </p>
-      <p>End Date: <%= reservation.end_date %> </p>
+      <img src="https://source.unsplash.com/random" />
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= reservation.flat.title %></h2>
+          <p>Start Date: <%= reservation.start_date %> </p>
+          <p>End Date: <%= reservation.end_date %> </p>
+        </div>
+        <h2 class="card-trip-pricing">Price: $<%= reservation.price %> </h2>
+      </div>
+      <%= link_to "Update Reservation", edit_flat_reservation_path(reservation.flat, reservation), class: "btn btn-primary" %>
+      <%= link_to "Delete Reservation" , flat_reservation_path(reservation.flat, reservation), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash-alt" %>
     </div>
-    <h2 class="card-trip-pricing">Price: $<%= reservation.price %> </h2>
-    
-  </div>
-  <%= link_to "Update Reservation", edit_flat_reservation_path(reservation.flat, reservation), class: "btn btn-primary" %>
- <%= link_to "" , flat_reservation_path(reservation.flat, reservation), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash-alt" %>
+<% end %>
 </div>
 
-  <% end %>
-</div> 
- 
