@@ -10,7 +10,7 @@ Flat.destroy_all
 puts 'database is clean'
 
 puts 'Creating Flats'
-100.times do 
+10.times do 
     flat = Flat.create(
         price: rand(100..500),
         description: Faker::TvShows::SiliconValley.motto,

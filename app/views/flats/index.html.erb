@@ -1,5 +1,20 @@
 <h1 class="border-bottom">Flats</h1>
+  <div class="flex-container">
+    <h3>Search on another city</h3>
+  
 
+    <div class="search-bar-flats">
+        <%= form_tag flats_path, method: :get do %>
+        <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a house"
+        %>
+        <%= submit_tag "Search", class: "btn btn-ghost" %>
+        <% end %>
+    </div>
+  </div>
+  
 <div class="btn-group", id="route_buttons">
     <%# <%= link_to "Home Page", root_path, class: "btn btn-primary btn-sm", id: "Home" %>
     <%= link_to "Create a new flat", new_flat_path, class: "btn btn-primary btn-sm", id: "New" %>
