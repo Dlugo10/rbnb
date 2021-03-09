@@ -21,10 +21,9 @@ class ReservationsController < ApplicationController
     authorize @reservation
     @reservation.user = current_user
     flat = Flat.find(params[:flat_id])
-    @days = (@reservation.end_date - @reservation.start_date).to_i
-    @reservation.price = @flat.price * @days
     @reservation.flat = flat
-
+    @total = (@reservation.end_date - @reservation.start_date).to_i
+    @reservation.price = @total * flat.price
     if @reservation.save
       redirect_to flat_reservations_path, notice: 'Reservation was successfully created'
     else
