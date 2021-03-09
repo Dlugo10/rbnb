@@ -2,6 +2,24 @@ class FlatsController < ApplicationController
    # Not required since everyone can see flats before_action :authenticate_user!
   def index
     @flats = policy_scope(Flat)
+
+    if params[:query].present?
+      @flats = Flat.search_by_address(params[:query])
+      @markers = @flats.geocoded.map do |flat|
+        {
+          lat: flat.latitude,
+          lng: flat.longitude
+        }
+      end
+    else
+      @flats = Flat.all
+      @markers = @flats.geocoded.map do |flat|
+        {
+          lat: flat.latitude,
+          lng: flat.longitude
+        }
+      end
+    end
   end
 
   def show

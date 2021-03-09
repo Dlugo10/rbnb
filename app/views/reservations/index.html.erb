@@ -10,7 +10,7 @@
   <img src="https://source.unsplash.com/random" />
   <div class="card-trip-infos">
     <div>
-      <h2>Title here</h2>
+      <h2><%= reservation.flat.title %></h2>
       <p>Start Date: <%= reservation.start_date %> </p>
       <p>End Date: <%= reservation.end_date %> </p>
     </div>
@@ -18,7 +18,7 @@
     
   </div>
   <%= link_to "Update Reservation", edit_flat_reservation_path(reservation.flat, reservation), class: "btn btn-primary" %>
- <i class="fas fa-trash-alt"> <%= link_to "." , flat_reservation_path(reservation.flat, reservation), method: :delete, data: { confirm: "Are you sure?" }%></i>
+ <%= link_to "" , flat_reservation_path(reservation.flat, reservation), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash-alt" %>
 </div>
 
   <% end %>
