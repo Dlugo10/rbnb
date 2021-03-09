@@ -1,7 +1,7 @@
 <h1 class="border-bottom">Our Available Homes</h1>
   <div class="flex-container">
     <h3>Search on another city</h3>
-
+  
 
     <div class="search-bar-flats">
         <%= form_tag flats_path, method: :get do %>
@@ -14,7 +14,7 @@
         <% end %>
     </div>
   </div>
-
+  
 
 <div class="main-container">
 
@@ -24,7 +24,7 @@
             style="width: 60%; height: 400px; margin-top: 0px; margin-bottom: 20px;"
             data-markers="<%= @markers.to_json %>"
             data-mapbox-api-key="pk.eyJ1IjoiZGF2aWRsdWdvMTAiLCJhIjoiY2tsMnBycGFvMGI2ajJucDdzeTc1bmg3diJ9.OIpMWRQo9NRtxDnU52PUmQ">
-        </div>
+        </div> 
     </div>
 
     <div class="row justify-content-center">
@@ -34,11 +34,12 @@
         </div>
     </div>
 
+
     <div class="container">
         <% @flats.each do |flat|%>
 
         <div class="card" style="height:550px;">
-           <%= link_to flat_path(flat) do %>
+           <%= link_to flat_path(flat) do %> 
             <div class="card-photo">
                 <% if flat.photos.any? %>
                     <%= image_tag flat.photos.first, class: "card-img-top"%>
@@ -67,3 +68,5 @@
         <% end %>
     </div>
 </div>
+
+
