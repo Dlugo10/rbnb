@@ -50,8 +50,13 @@
                 <h6 class="card-address"><%= flat.address %> </h6>
                 <p class="card-description"><%= flat.description %> </p>
                 <div class="buttons-bottom">
+                <% if flat.user == current_user %>
                     <a><%= link_to "Update Flat", edit_flat_path(flat), class: "btn btn-primary" %> </a>
                     <a><%= link_to "Delete Flat", flat_path(flat), method: "delete", class: "btn btn-danger", data: { confirm: "Are you sure?" } %> </a>
+                <% else %>
+                    <a><%= link_to "Rent this Flat", new_flat_reservation_path(flat), class: "btn btn-primary" %> </a>
+                <% end %>
+
                 </div>
             </div>
 

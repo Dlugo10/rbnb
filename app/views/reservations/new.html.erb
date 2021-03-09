@@ -1,17 +1,22 @@
 <h1 class="border-bottom">New Reservation</h1>
-
-<ul>
-
-  <%= simple_form_for [@flat, @reservation] do |f| %>
-
-  <li>
-    <%= f.input :start_date, as: :date, html5: true %>
-  </li>
-   <li>
-    <%= f.input :end_date, as: :date, html5: true %>
-  </li>
-  <li>
-    <%= f.submit %>
-  </li>
-</ul>
-<% end %>
+   <div class="container-user-form">
+    <div class= 'divider'>
+      <div class='row justify-content-center'>
+        <div class="col-6">  
+          <ul>
+            <%= simple_form_for [@flat, @reservation] do |f| %>
+            <li>
+              <%= f.input :start_date, as: :date, html5: true %>
+            </li>
+            <li>
+              <%= f.input :end_date, as: :date, html5: true %>
+            </li>
+            <li>
+              <%= f.submit %>
+            </li>
+          </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
