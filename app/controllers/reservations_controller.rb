@@ -20,7 +20,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     authorize @reservation
     @reservation.user = current_user
-
+    @reservation.price =
     flat = Flat.find(params[:flat_id])
     @reservation.flat = flat
 

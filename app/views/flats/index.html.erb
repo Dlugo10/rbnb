@@ -5,21 +5,12 @@
     <%= link_to "Create a new flat", new_flat_path, class: "btn btn-primary btn-sm", id: "New" %>
 </div>
 
-<div class="main-container">
 
-    <div class="container-user-form">
-        <div class='row justify-content-center'>
-        <div id="map"
-            style="width: 75%; height: 550px; margin-top: 0; margin-bottom: 50px;"
-            data-markers="<%= @markers.to_json %>"
-            data-mapbox-api-key="pk.eyJ1IjoiZGF2aWRsdWdvMTAiLCJhIjoiY2tsMnBycGFvMGI2ajJucDdzeTc1bmg3diJ9.OIpMWRQo9NRtxDnU52PUmQ">
-        </div>
-    </div>
 
-    <div class="container">
+    <div class="flex-container">
         <% @flats.each do |flat|%>
 
-        <div class="card" style="height:550px;">
+        <div class="card">
 
             <div class="card-photo">
                 <% if flat.photos.any? %>
@@ -30,6 +21,7 @@
             </div>
 
             <div class="card-body">
+                <a><%= link_to "Make a Reservation", new_flat_reservation_path(flat), class: "btn btn-primary" %> </a>
                 <h4 class="card-title"><%= flat.title %> </h4>
                 <h5 class="card-price"><%= "$ #{flat.price}" %> </h5>
                 <h6 class="card-address"><%= flat.address %> </h6>
@@ -42,17 +34,16 @@
         </div>
      </div>
     <% end %>
-</div>
+  </div>
+    <div class="main-container">
 
-<div class="container-user-form">
-    <div class='row justify-content-center'>
-     <div id="map"
-          style="width: 55%; height: 500px;"
-          data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="pk.eyJ1IjoiZGF2aWRsdWdvMTAiLCJhIjoiY2tsMnBycGFvMGI2ajJucDdzeTc1bmg3diJ9.OIpMWRQo9NRtxDnU52PUmQ">
-     </div>
-        <% end %>
+    <div class="container-user-form">
+        <div class='row justify-content-center'>
+        <div id="map"
+            style="width: 75%; height: 550px; margin-top: 0; margin-bottom: 50px;"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="pk.eyJ1IjoiZGF2aWRsdWdvMTAiLCJhIjoiY2tsMnBycGFvMGI2ajJucDdzeTc1bmg3diJ9.OIpMWRQo9NRtxDnU52PUmQ">
+        </div>
     </div>
-</div>
 
 
