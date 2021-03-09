@@ -1,29 +1,49 @@
 <h1 class="border-bottom">Flats</h1>
 
-<div class="btn-group", id="route buttons">
-    <%= link_to "Home Page", root_path, class: "btn btn-primary btn-sm", id: "Home" %>
-    <%=  link_to "Create a new flat", new_flat_path, class: "btn btn-primary btn-sm", id: "New" %>
+<div class="btn-group", id="route_buttons">
+    <%# <%= link_to "Home Page", root_path, class: "btn btn-primary btn-sm", id: "Home" %>
+    <%= link_to "Create a new flat", new_flat_path, class: "btn btn-primary btn-sm", id: "New" %>
 </div>
 
-<div class="container">
-    <% @flats.each do |flat|%>
-     <div class="card" style="width: 18rem;">
-        <% if flat.photos.any? %>
-            <%= image_tag flat.photos.first, class: "card-img-top"%>
-        <%else%>
-            <img class="card-img-top" src="https://images.adsttc.com/media/images/5e1d/02c3/3312/fd58/9c00/06e9/slideshow/NewHouse_SA_Photo_01.jpg?1578959519" alt="Card image cap">
-        <%end%>
-        <div class="card-body">
-            <h4 class="card-title"><%= flat.title %> </h4>
-            <h4 class="card-price"><%= "$ #{flat.price}" %> </h4>
-            <h6 class="card-address"><%= flat.address %> </h6>
-            <p class="card-description"><%= flat.description %> </p>
-            <a><%= link_to "Update Flat", edit_flat_path(flat), class: "btn btn-primary" %> </a>
-            <a><%= link_to "Delete Flat", flat_path(flat), method: "delete", class: "btn btn-danger" %> </a>
+<div class="main-container">
+
+    <div class="container-user-form">
+        <div class='row justify-content-center'>
+        <div id="map"
+            style="width: 75%; height: 550px; margin-top: 0; margin-bottom: 50px;"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="pk.eyJ1IjoiZGF2aWRsdWdvMTAiLCJhIjoiY2tsMnBycGFvMGI2ajJucDdzeTc1bmg3diJ9.OIpMWRQo9NRtxDnU52PUmQ">
+        </div>
+    </div>
+
+    <div class="container">
+        <% @flats.each do |flat|%>
+
+        <div class="card" style="height:550px;">
+
+            <div class="card-photo">
+                <% if flat.photos.any? %>
+                    <%= image_tag flat.photos.first, class: "card-img-top"%>
+                <%else%>
+                    <img class="card-img-top" src="https://images.adsttc.com/media/images/5e1d/02c3/3312/fd58/9c00/06e9/slideshow/NewHouse_SA_Photo_01.jpg?1578959519" alt="Card image cap">
+                <%end%>
+            </div>
+
+            <div class="card-body">
+                <h4 class="card-title"><%= flat.title %> </h4>
+                <h5 class="card-price"><%= "$ #{flat.price}" %> </h5>
+                <h6 class="card-address"><%= flat.address %> </h6>
+                <p class="card-description"><%= flat.description %> </p>
+                <div class="buttons-bottom">
+                    <a><%= link_to "Update Flat", edit_flat_path(flat), class: "btn btn-primary" %> </a>
+                    <a><%= link_to "Delete Flat", flat_path(flat), method: "delete", class: "btn btn-danger", data: { confirm: "Are you sure?" } %> </a>
+                </div>
+            </div>
         </div>
      </div>
     <% end %>
 </div>
+
 <div class="container-user-form">
     <div class='row justify-content-center'>
      <div id="map"
@@ -31,6 +51,8 @@
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="pk.eyJ1IjoiZGF2aWRsdWdvMTAiLCJhIjoiY2tsMnBycGFvMGI2ajJucDdzeTc1bmg3diJ9.OIpMWRQo9NRtxDnU52PUmQ">
      </div>
+        <% end %>
     </div>
 </div>
+
 

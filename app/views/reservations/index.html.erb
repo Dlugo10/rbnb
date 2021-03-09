@@ -1,5 +1,8 @@
 <h1 class="border-bottom">My Reservations</h1>
 
+<%=link_to "New Reservation", flats_path, class: "btn btn-primary" %>
+
+
 <div class='reservation-list'>
   
   <% @reservations.each do |reservation|%>
@@ -11,7 +14,7 @@
       <p>Start Date: <%= reservation.start_date %> </p>
       <p>End Date: <%= reservation.end_date %> </p>
     </div>
-    <h2 class="card-trip-pricing">Price: <%= reservation.price %> $</h2>
+    <h2 class="card-trip-pricing">Price: $<%= reservation.price %> </h2>
     
   </div>
   <%= link_to "Update Reservation", edit_flat_reservation_path(reservation.flat, reservation), class: "btn btn-primary" %>
