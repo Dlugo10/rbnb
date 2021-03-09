@@ -1,20 +1,27 @@
- <%= link_to "Back to my flats", flats_path %>
-<div>
-    <div class="container-fluid">
-      <img src=<%=@flats.photos.first %> class="d-block w-100" alt="...">
-      <h2 id="title"><%= @flats.title %></h2>
-      <h4>Price $:<%= @flats.price %></h4>
-      <p><%= @flats.description %></p>
-      <p><%= @flats.address %></p>
-      <p><%= @flats.city %></p>
-      <p>Bedrooms: <%= @flats.bedroom %></p>
-      <p>Beds: <%= @flats.bed %></p>
-      <p>Bathrooms: <%= @flats.restroom %></p>
-      <p>Available start date: <%= @flats.availability_start_date %></p>
-      <p>Available end date: <%= @flats.availability_end_date %></p> 
-      <a><%= link_to "Reserve Flat", new_flat_reservation_path(@flats), class: "btn btn-info"%> </a>
+ <div class="container-user-form">
+  <div class= 'divider'>
+    <div class='row justify-content-center'>
+      <div class="col-6"> 
+        <div>
+            <div class="container-fluid">
+              <img src="https://source.unsplash.com/random" class="d-block w-100" alt="...">
+              <h2 id="title"><%= @flats.title %></h2>
+              <h4>Price $:<%= @flats.price %></h4>
+              <p><%= @flats.description %></p>
+              <p><%= @flats.address %></p>
+              <p><%= @flats.city %></p>
+              <p>Bedrooms: <%= @flats.bedroom %></p>
+              <p>Beds: <%= @flats.bed %></p>
+              <p>Bathrooms: <%= @flats.restroom %></p>
+              <p>Available start date: <%= @flats.availability_start_date %></p>
+              <p>Available end date: <%= @flats.availability_end_date %></p> 
+              <div class='row justify-content-center'>
+                <a><%= link_to "Reserve Flat", new_flat_reservation_path(@flats), class: "btn btn-ghost"%> </a>
+              </div>
+            </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
-
-    <!-- Code here -->
 
