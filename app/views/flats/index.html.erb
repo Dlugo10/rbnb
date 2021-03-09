@@ -35,7 +35,7 @@
         <% @flats.each do |flat|%>
 
         <div class="card" style="height:550px;">
-            
+           <%= link_to flat_path(flat) do %> 
             <div class="card-photo">
                 <% if flat.photos.any? %>
                     <%= image_tag flat.photos.first, class: "card-img-top"%>
@@ -43,7 +43,7 @@
                     <img class="card-img-top" src="https://images.adsttc.com/media/images/5e1d/02c3/3312/fd58/9c00/06e9/slideshow/NewHouse_SA_Photo_01.jpg?1578959519" alt="Card image cap">
                 <%end%>
             </div>
-
+          <%end%>
             <div class="card-body">
                 <h4 class="card-title"><%= flat.title %> </h4>
                 <h5 class="card-price"><%= "$ #{flat.price}" %> </h5>
